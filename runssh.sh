@@ -9,6 +9,10 @@ if [ ! -f "/etc/ssh/ssh_host_dsa_key" ]; then
 	ssh-keygen -f /etc/ssh/ssh_host_dsa_key -N '' -t dsa
 fi
 
+# set password root is root
+SSHPASS1=${SSHPASS:-root}
+echo "root:$SSHPASS1" | chpasswd
+
 #prepare run dir
 if [ ! -d "/var/run/sshd" ]; then
   mkdir -p /var/run/sshd
