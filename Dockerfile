@@ -23,8 +23,6 @@ RUN chmod +x /runssh.sh
 RUN rm -rf /etc/ssh/ssh_host_rsa_key /etc/ssh/ssh_host_dsa_key
 
 RUN mkdir /var/run/sshd
-# set password root is root
-RUN echo 'root:root' | chpasswd
 # allow root ssh
 RUN sed -i -e '/^PermitRootLogin/s/^.*$/PermitRootLogin yes/' /etc/ssh/sshd_config
 
