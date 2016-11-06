@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine:edge
 
 MAINTAINER "Duc Anh Babim" <ducanh.babim@yahoo.com>
 
