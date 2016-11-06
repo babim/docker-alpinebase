@@ -13,3 +13,13 @@ RUN apk add --no-cache tzdata \
     && cp /usr/share/zoneinfo/Asia/Ho_Chi_Minh /etc/localtime \
     && echo "Asia/Ho_Chi_Minh" >  /etc/timezone \
     && apk del tzdata
+    
+# add ssh
+RUN apk add --no-cache openssh
+# add entrypoint script
+ADD runssh.sh /runssh.sh
+RUN chmod +x /runssh.sh
+#make sure we get fresh keys
+RUN rm -rf /etc/ssh/ssh_host_rsa_key /etc/ssh/ssh_host_dsa_key
+
+ENTRYPOINT ["/runssh.sh"]
