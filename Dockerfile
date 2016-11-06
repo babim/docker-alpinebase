@@ -17,7 +17,7 @@ RUN apk add --no-cache tzdata \
 # add ssh
 RUN apk add --no-cache openssh
 # add entrypoint script
-COPY docker-entrypoint.sh /entrypoint.sh
+COPY docker-entrypoint.sh /runssh.sh
 RUN chmod +x /entrypoint.sh
 
 #make sure we get fresh keys
@@ -28,5 +28,5 @@ RUN mkdir /var/run/sshd
 RUN sed -i -e '/^PermitRootLogin/s/^.*$/PermitRootLogin yes/' /etc/ssh/sshd_config
 
 EXPOSE 22
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/runssh.sh"]
 CMD ["/usr/sbin/sshd", "-D"]
