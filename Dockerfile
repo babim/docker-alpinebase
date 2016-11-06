@@ -18,7 +18,7 @@ RUN apk add --no-cache tzdata \
 RUN apk add --no-cache openssh
 # add entrypoint script
 COPY docker-entrypoint.sh /runssh.sh
-RUN chmod +x /entrypoint.sh
+RUN chmod +x /runssh.sh
 
 #make sure we get fresh keys
 RUN rm -rf /etc/ssh/ssh_host_rsa_key /etc/ssh/ssh_host_dsa_key
