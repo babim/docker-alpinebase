@@ -11,4 +11,5 @@ RUN rm -f /etc/motd && \
 # Set timezone
 RUN apk add --no-cache tzdata \
     && cp /usr/share/zoneinfo/Asia/Ho_Chi_Minh /etc/localtime \
-    && echo "Asia/Ho_Chi_Minh" >  /etc/timezone
+    && echo "Asia/Ho_Chi_Minh" >  /etc/timezone \
+    && apk del tzdata
