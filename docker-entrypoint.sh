@@ -38,4 +38,9 @@ if [ ! -d "/var/run/sshd" ]; then
   mkdir -p /var/run/sshd
 fi
 
+# check other script and run ssh
+if [ ! -f "/boot.sh" ] && [ ! -f "/first.sh" ] && [ ! -f "/firstrun.sh" ] && [ ! -f "/start.sh" ] && [ ! -f "/starting.sh" ] && [ ! -f "/startup.sh" ] && [ ! -f "/run.sh" ] && [ ! -f "/entry.sh" ] && [ ! -f "/entrypoint.sh" ] && [ ! -f "/entry-point.sh" ] && [ ! -f "/docker-entrypoint.sh" ]; then
+    /usr/sbin/sshd
+fi
+
 exec "$@"
