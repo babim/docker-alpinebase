@@ -30,8 +30,8 @@ if [ "${AUTHORIZED_KEYS}" != "**None**" ]; then
 fi
 
 # set password root is root
-SSHPASS1=${SSHPASS:-root}
-echo "root:$SSHPASS1" | chpasswd
+SSHPASS=${SSHPASS:-root}
+echo "root:$SSHPASS" | chpasswd
 
 #prepare run dir
 if [ ! -d "/var/run/sshd" ]; then
