@@ -1,4 +1,4 @@
-FROM alpine:3.8.ssh
+FROM alpine:3.8
 # Maintainer
 # ----------
 MAINTAINER babim <babim@matmagoc.com>
