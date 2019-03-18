@@ -1,4 +1,4 @@
-FROM alpine:3.4
+FROM i386/alpine:3.4
 # Maintainer
 # ----------
 MAINTAINER babim <babim@matmagoc.com>
