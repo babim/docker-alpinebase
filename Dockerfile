@@ -3,14 +3,7 @@ FROM i386/alpine:3.5
 # ----------
 MAINTAINER babim <babim@matmagoc.com>
 
-RUN rm -f /etc/motd && \
-    echo "---" > /etc/motd && \
-    echo "Support by Duc Anh Babim. Contact: babim@matmagoc.com" >> /etc/motd && \
-    echo "---" >> /etc/motd && \
-    touch "/(C) Babim"
+RUN apk add --no-cache nano curl bash
 
-# Set timezone
-RUN apk add --no-cache tzdata \
-    && cp /usr/share/zoneinfo/Asia/Ho_Chi_Minh /etc/localtime \
-    && echo "Asia/Ho_Chi_Minh" >  /etc/timezone \
-    && apk del tzdata
+# copyright and timezone
+RUN bash <(curl -s https://raw.githubusercontent.com/babim/docker-tag-options/master/z%20SCRIPT%20AUTO/copyright.sh)
