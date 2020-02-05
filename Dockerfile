@@ -1,4 +1,4 @@
-FROM alpine:3.4
+FROM alpine:3.10
 # Maintainer
 # ----------
 MAINTAINER babim <babim@matmagoc.com>
