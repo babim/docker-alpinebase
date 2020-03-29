@@ -19,7 +19,7 @@ RUN rm -rf /etc/ssh/ssh_host_rsa_key /etc/ssh/ssh_host_dsa_key
 
 RUN mkdir /var/run/sshd
 # allow root ssh
-RUN sed -i 's/^.PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+RUN sed -i -e '/^.PermitRootLogin/s/^.*$/PermitRootLogin yes/' /etc/ssh/sshd_config
 
 EXPOSE 22
 ENTRYPOINT ["/runssh.sh"]
